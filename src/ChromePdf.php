@@ -21,7 +21,6 @@ class ChromePdf
         '--headless',
         '--disable-gpu',
         '--disable-crash-reporter',
-        '--run-all-compositor-stages-before-draw',
         '--print-to-pdf-no-header',
     ];
 
@@ -87,6 +86,24 @@ class ChromePdf
     public function setFlags(array $flags): static
     {
         $this->chromeFlags = $flags;
+
+        return $this;
+    }
+
+    public function clearFlag(array|string $flag): static
+    {
+        if (is_array($flag)) {
+            foreach ($flag as $f) {
+                $this->clearFlag($f);
+            }
+
+            return $this;
+        }
+
+        if ($index = array_search($flag, $this->chromeFlags)) {
+            unset($this->chromeFlags[$index]);
+            $this->chromeFlags = array_values($this->chromeFlags);
+        }
 
         return $this;
     }

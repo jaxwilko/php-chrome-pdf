@@ -65,4 +65,16 @@ $chromePdf->setFlags([
 
 // You can also retrieve flag via
 $flags = $chromePdf->getFlags();
+
+// Removing a flag
+$chromePdf->clearFlag('--example-flag');
 ```
+
+### Chrome flags
+
+The following are some useful flags which may help.
+
+- `--virtual-time-budget=1000` If set the system waits the specified number of virtual milliseconds before deeming the page to be ready. For determinism virtual time does not advance while there are pending network fetches (i.e no timers will fire). Once all network fetches have completed, timers fire and if the system runs out of virtual time is fastforwarded so the next timer fires immediately, until the specified virtual time budget is exhausted
+- `--run-all-compositor-stages-before-draw` Effectively disables pipelining of compositor frame production stages by waiting for each stage to finish before completing a frame.
+
+For more see [Peter Beverloo's very helpful page](https://peter.sh/experiments/chromium-command-line-switches/).

@@ -86,7 +86,7 @@ class ChromePdf
 
     public function setFlags(array $flags): static
     {
-        $this->chromeFlags[] = $flags;
+        $this->chromeFlags = $flags;
 
         return $this;
     }

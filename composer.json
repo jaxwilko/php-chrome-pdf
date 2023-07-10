@@ -1,0 +1,19 @@
+{
+    "name": "jaxwilko/php-chrome-pdf",
+    "description": "A package to leverage Chrome as a PDF renderer for PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ChromePdf\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jack Wilkinson",
+            "email": "me@jackwilky.com"
+        }
+    ],
+    "require": {
+        "symfony/process": "^6.3"
+    }
+}
